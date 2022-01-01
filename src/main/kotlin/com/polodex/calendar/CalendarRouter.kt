@@ -1,4 +1,4 @@
-package com.pocodex.calendar
+package com.polodex.calendar
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -20,6 +20,5 @@ class CalendarRouter {
             POST("/calendars")
                 .and(accept(MediaType.APPLICATION_JSON))
         ) { request -> calendarHandler.createEmptyCalendar(request) }
-
 
 }

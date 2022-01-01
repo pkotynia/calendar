@@ -1,4 +1,4 @@
-package com.pocodex.calendar
+package com.polodex.calendar
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -12,8 +12,6 @@ class CalendarApplication
 
 fun main(args: Array<String>) {
 	runApplication<CalendarApplication>(*args)
-
-
 }
 
 

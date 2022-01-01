@@ -1,4 +1,4 @@
-package com.pocodex.calendar
+package com.polodex.calendar
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.r2dbc.core.R2dbcEntityTemplate

@@ -1,4 +1,4 @@
-package com.pocodex.calendar
+package com.polodex.calendar
 
 import org.springframework.web.reactive.function.client.WebClient
 

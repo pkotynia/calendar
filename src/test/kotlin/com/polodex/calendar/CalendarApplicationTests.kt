@@ -1,4 +1,4 @@
-package com.pocodex.calendar
+package com.polodex.calendar
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
