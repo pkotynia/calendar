@@ -10,16 +10,16 @@ import org.springframework.web.reactive.function.server.bodyToMono
 
 @RestController
 @RequestMapping("/calendars")
-class CalendarController(val calendarRepository: CalendarRepo) {
+class CalendarController(val calendarRepository: CalendarRepository) {
 
     fun getCalendarById(request: ServerRequest) = ServerResponse
                 .ok()
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(BodyInserters.fromProducer(
-                                calendarRepository.findById(
+                                calendarRepository.findCalendarById(
                                         request
                                                 .queryParam("id")
-                                                .orElse("")
+                                                .orElse("").toInt()
                                 ) , Calendar::class.java
                         )
                 )

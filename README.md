@@ -12,14 +12,14 @@ postgres
 
 docker exec -it dev-postgres psql -U postgres
 
-CREATE TABLE calendars (
-id serial PRIMARY KEY,
-name VARCHAR
-);
-
-
 curls for testing:
 
 curl -X POST -H "Content-Type: application/json" \
--d '{"name": "call availability"}' \
+-d '{"name": "Fred"}' \
+http://localhost:8080/users
+
+curl -X POST -H "Content-Type: application/json" \
+-d '{"userId":"1", "name": "call availability"}' \
 http://localhost:8080/calendars
+
+

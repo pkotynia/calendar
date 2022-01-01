@@ -1,18 +1,20 @@
 package com.polodex.calendar
 
 import org.springframework.data.annotation.Id
-import org.springframework.data.r2dbc.core.R2dbcEntityTemplate
-import org.springframework.data.r2dbc.core.insert
+import org.springframework.data.r2dbc.repository.Query
 import org.springframework.data.r2dbc.repository.R2dbcRepository
 import org.springframework.data.relational.core.mapping.Table
-import org.springframework.stereotype.Component
 import org.springframework.stereotype.Repository
 import reactor.core.publisher.Mono
 
 @Repository
-interface CalendarRepo : R2dbcRepository<Calendar, String>
+interface CalendarRepository : R2dbcRepository<Calendar, String> {
+
+    @Query("select * from calendars c where id = :id")
+    fun findCalendarById(id: Int): Mono<Calendar>
+}
 
 @Table("calendars")
-data class Calendar(@Id val id:Int?, val name: String)
+data class Calendar(@Id val id:Int?, val userId:Int, val name: String)
 
 
