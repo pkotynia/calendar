@@ -15,6 +15,6 @@ interface CalendarRepository : R2dbcRepository<Calendar, String> {
 }
 
 @Table("calendars")
-data class Calendar(@Id val id:Int?, val userId:Int, val name: String)
+data class Calendar(@Id val id:Int?, val userId:Int, val uuid:String?, val name: String)
 
 
