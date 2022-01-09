@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository
 @Repository
 interface UsersRepository: R2dbcRepository<User, String>
 
-@Table("users")
+@Table("calendar_user")
 data class User(@Id val id:Int?, val name: String)

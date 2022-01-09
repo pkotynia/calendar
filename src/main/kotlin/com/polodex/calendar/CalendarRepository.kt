@@ -10,11 +10,11 @@ import reactor.core.publisher.Mono
 @Repository
 interface CalendarRepository : R2dbcRepository<Calendar, String> {
 
-    @Query("select * from calendars c where id = :id")
+    @Query("select * from calendar c where id = :id")
     fun findCalendarById(id: Int): Mono<Calendar>
 }
 
-@Table("calendars")
+@Table("calendar")
 data class Calendar(@Id val id:Int?, val userId:Int, val uuid:String?, val name: String)
 
 

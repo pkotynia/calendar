@@ -22,4 +22,8 @@ curl -X POST -H "Content-Type: application/json" \
 -d '{"userId":"1", "name": "call availability"}' \
 http://localhost:8080/calendars
 
+curl -X POST -H "Content-Type: application/json" \
+-d '{"userId":"1", "calendarId":"1"}' \
+http://localhost:8080/timeslots
+
 

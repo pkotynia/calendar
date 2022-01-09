@@ -36,5 +36,17 @@ class Router {
             usersController::addUser
         )
 
-
+    @Bean
+    @RouterOperation(path = "/timeslots", beanClass = TimeSlotController::class, beanMethod = "createTimeSlot")
+    fun timeSlotRoute(timeSlotController: TimeSlotController) = RouterFunctions
+        .route(
+            POST("/timeslots")
+                .and(accept(MediaType.APPLICATION_JSON)),
+            timeSlotController::createTimeSlot
+        ).andRoute(
+            GET("/timeslots")
+                .and(accept(MediaType.APPLICATION_JSON))
+                .and(queryParam("calendarId") { true }),
+            timeSlotController::getTimeSlotsByCalendarId
+        )
 }
