@@ -15,8 +15,8 @@ CREATE TABLE time_slot (
     id SERIAL PRIMARY KEY,
     calendar_id INT NOT NULL,
     user_id INT NOT NULL,
---    start_date DATE NOT NULL,
---    end_date DATE NOT NULL,
+    start_time TIMESTAMP NOT NULL,
+    end_time TIMESTAMP NOT NULL,
     CONSTRAINT fk_user FOREIGN KEY(user_id) REFERENCES calendar_user(id),
     CONSTRAINT fk_calendar FOREIGN KEY(calendar_id) REFERENCES calendar(id)
 );

@@ -5,7 +5,7 @@ import org.springframework.data.r2dbc.repository.Query
 import org.springframework.data.r2dbc.repository.R2dbcRepository
 import org.springframework.data.relational.core.mapping.Table
 import reactor.core.publisher.Flux
-import reactor.core.publisher.Mono
+import java.time.LocalDateTime
 
 interface TimeSlotRepository: R2dbcRepository<TimeSlot, String> {
 
@@ -14,4 +14,4 @@ interface TimeSlotRepository: R2dbcRepository<TimeSlot, String> {
 }
 
 @Table("time_slot")
-data class TimeSlot(@Id val id:Int?,val userId:Int, val calendarId:Int)
+data class TimeSlot(@Id val id:Int?,val userId:Int, val calendarId:Int, val startTime:LocalDateTime, val endTime:LocalDateTime)
