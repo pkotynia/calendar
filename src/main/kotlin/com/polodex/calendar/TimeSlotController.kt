@@ -10,7 +10,7 @@ import org.springframework.web.reactive.function.server.bodyToMono
 
 @RestController
 @RequestMapping("/timeslots")
-class TimeSlotController(val timeSlotRepository: TimeSlotRepository) {
+class TimeSlotController(val timeSlotQuerryRepository: TimeSlotQuerryRepository, val timeSlotRepository: TimeSlotRepository) {
 
     fun createTimeSlot(request: ServerRequest) =
         request.bodyToMono<TimeSlot>()
@@ -32,12 +32,12 @@ class TimeSlotController(val timeSlotRepository: TimeSlotRepository) {
             .contentType(MediaType.APPLICATION_JSON)
             .body(
                 BodyInserters.fromProducer(
-                    timeSlotRepository.findByCalendarId(
+                    timeSlotQuerryRepository.findByCalendarId(
                         request
                             .queryParam("calendarId")
                             .orElse("").toInt()
                     ),
-                    TimeSlot::class.java
+                    TimeSlots::class.java
                 )
             )
 }
