@@ -1,5 +1,7 @@
-package com.polodex.calendar
+package com.polodex.calendar.calendar
 
+import com.polodex.calendar.Calendar
+import com.polodex.calendar.CalendarRepository
 import org.springframework.data.annotation.Id
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.RequestMapping
@@ -12,18 +14,18 @@ import java.util.*
 
 @RestController
 @RequestMapping("/calendars")
-class CalendarController(val calendarRepository: CalendarRepository) {
+class CalendarController(val calendarRepository: CalendarRepository, val calendarQueryRepository: CalendarQueryRepository) {
 
     fun getCalendarById(request: ServerRequest) = ServerResponse
         .ok()
         .contentType(MediaType.APPLICATION_JSON)
         .body(
             BodyInserters.fromProducer(
-                calendarRepository.findCalendarById(
+                calendarQueryRepository.findCalendarById(
                     request
                         .queryParam("id")
                         .orElse("").toInt()
-                ), Calendar::class.java
+                ), CalendarDTO::class.java
             )
         )
 
@@ -41,4 +43,5 @@ class CalendarController(val calendarRepository: CalendarRepository) {
         }
 
 }
+
 

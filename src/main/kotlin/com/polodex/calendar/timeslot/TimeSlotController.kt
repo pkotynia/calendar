@@ -1,5 +1,9 @@
-package com.polodex.calendar
+package com.polodex.calendar.timeslot
 
+import com.polodex.calendar.TimeSlot
+import com.polodex.calendar.TimeSlotQueryRepository
+import com.polodex.calendar.TimeSlotRepository
+import com.polodex.calendar.TimeSlotDTO
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -10,7 +14,7 @@ import org.springframework.web.reactive.function.server.bodyToMono
 
 @RestController
 @RequestMapping("/timeslots")
-class TimeSlotController(val timeSlotQuerryRepository: TimeSlotQuerryRepository, val timeSlotRepository: TimeSlotRepository) {
+class TimeSlotController(val timeSlotQuerryRepository: TimeSlotQueryRepository, val timeSlotRepository: TimeSlotRepository) {
 
     fun createTimeSlot(request: ServerRequest) =
         request.bodyToMono<TimeSlot>()
@@ -37,7 +41,7 @@ class TimeSlotController(val timeSlotQuerryRepository: TimeSlotQuerryRepository,
                             .queryParam("calendarId")
                             .orElse("").toInt()
                     ),
-                    TimeSlots::class.java
+                    TimeSlotDTO::class.java
                 )
             )
 }

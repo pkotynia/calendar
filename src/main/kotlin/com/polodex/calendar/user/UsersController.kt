@@ -1,5 +1,7 @@
-package com.polodex.calendar
+package com.polodex.calendar.user
 
+import com.polodex.calendar.User
+import com.polodex.calendar.UsersRepository
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController

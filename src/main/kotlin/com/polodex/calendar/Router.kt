@@ -1,5 +1,8 @@
 package com.polodex.calendar
 
+import com.polodex.calendar.calendar.CalendarController
+import com.polodex.calendar.timeslot.TimeSlotController
+import com.polodex.calendar.user.UsersController
 import org.springdoc.core.annotations.RouterOperation
 import org.springdoc.core.annotations.RouterOperations
 import org.springframework.context.annotation.Bean
@@ -7,7 +10,6 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.http.MediaType
 import org.springframework.web.reactive.function.server.RequestPredicates.*
 import org.springframework.web.reactive.function.server.RouterFunctions
-import kotlin.reflect.KClass
 
 @Configuration(proxyBeanMethods = false)
 class Router {
