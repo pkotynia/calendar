@@ -6,7 +6,9 @@ from project main directory run:
 
 docker-compose up
 
+
 dockerized app is running on port 8081
+
 local app is running on port 8080
 
 # curls for testing:
